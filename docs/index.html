@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snapybara - Photo Quest RPG</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #754622;
+      --secondary: #fff;
+      --dark: #333;
+      --light: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { color: var(--dark); background: var(--secondary); }
+    body, h1, h2, h3, h4, h5, h6, p, a, button, .btn, .feature, header, footer, .features, .screenshots, .download {
+      font-family: "MedievalSharp", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+    header { background: var(--primary); color: var(--light); text-align: center; padding: 4rem 1rem; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; opacity: 0.9; }
+    .btn { display: inline-block; margin: 0.5rem 1rem; padding: 0.75rem 1.5rem; background: var(--light); color: var(--primary); border-radius: 2rem; text-decoration: none; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .features { 
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 2rem; 
+      padding: 4rem 1rem; 
+      position: relative; 
+      z-index: 3; 
+      margin-top: 500px;
+    }
+    @media (max-width: 700px) {
+      .features {
+        margin-top: -60px;
+      }
+    }
+    .feature { 
+      background: var(--light); 
+      flex: 1 1 200px; 
+      max-width: 250px; 
+      padding: 2rem; 
+      border-radius: 1.5rem; 
+      text-align: center; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+      min-height: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      opacity: 1; /* Ensure features are not translucent */
+    }
+    .feature.brown-gradient {
+      background: linear-gradient(45deg, rgb(171, 79, 8) 75%, rgba(171, 79, 8, 0.5) 100%);
+      color: #fff;
+      opacity: 1;
+    }
+    .feature.red-gradient {
+      background: linear-gradient(45deg, rgb(183, 50, 50) 75%, rgba(183, 50, 50, 0.5) 100%);
+      color: #fff;
+      opacity: 1;
+    }
+    .feature.green-gradient {
+      background: linear-gradient(45deg, rgb(25, 91, 18) 75%, rgba(25, 91, 18, 0.5) 100%);
+      color: #fff;
+      opacity: 1;
+    }
+    .feature h3 { margin-top: 1rem; font-weight: 500; }
+    .screenshots { padding: 4rem 1rem; color: var(--primary); text-align: center;}
+    .screenshots span {display: flex; flex-direction: row; justify-content: space-between; margin-top: 3rem;} 
+    .screenshots img {  max-width: 30%; height: auto; border-radius: 1rem; box-shadow: 0 8px 16px rgba(0,0,0,0.1);}
+    .download { padding: 4rem 1rem; text-align: center; background: var(--primary); }
+    .download h2 { color: var(--light); font-size: 2rem; margin-bottom: 1rem; }
+    .download a img { height: 60px; margin: 0 0.5rem; }
+    footer { padding: 2rem 1rem; text-align: center; font-size: 0.9rem; }
+    footer a { color: var(--primary); text-decoration: none; margin: 0 0.5rem; }
+    @media (min-width: 768px) {
+      header h1 { font-size: 3rem; }
+      .features { padding: 6rem 2rem; }
+      .screenshots { padding: 6rem 2rem; }
+    }
+    /* Parallax header styles */
+    .parallax-header {
+      position: absolute;
+      height: 1600px; /* Restore explicit height */
+      overflow: hidden;
+      width: 100%;
+      z-index: -10;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .parallax-header img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      max-width: 100vw;
+      object-fit: contain;
+      object-position: center;
+      will-change: transform;
+      transition: transform 0.2s;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+      opacity: 1;
+      display: block;
+    }
+    .parallax-header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.25);
+      z-index: 2;
+      pointer-events: none;
+    }
+    @media (max-width: 700px) {
+      .parallax-header {
+        height: 180px;
+      }
+      .parallax-header img {
+        min-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 >Snapybara</h1>
+    <p>The Epic Adventure</p>
+    <a href="https://play.google.com/store/apps/details?id=com.snapybara">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width: 200px; margin-top: 1rem;">
+    </a>
+    <!-- <a href="https://apps.apple.com/app/snapybara/id000000000" class="btn">Download on the App Store</a> -->
+  </header>
+  <div class="parallax-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <img src="frontend/assets/images/snapybaralogo1.png" alt="Snapybara Logo" id="parallax-logo">
+  </div>
+  <section class="features">
+    <div class="feature brown-gradient">
+      <i data-lucide="scroll" style="width:60px; height:60px;"></i>
+      <h3>Quests</h3>
+      <br>
+      <p>Test your creativity and photo skills</p>
+      <br>
+      <p>Complete photo quests to earn experience points and compete on the global ranking.</p>
+    </div>
+    <div class="feature red-gradient">
+      <i data-lucide="backpack" style="width:60px; height:60px;"></i>
+      <h3>Story</h3>
+      <br>
+      <p>Embark on an immersive journey</p>
+      <br>
+      <p>Capture real-world items from your surroundings so they become part of your inventory and help you solve puzzles and progress the story.</p>
+    </div>
+    <div class="feature green-gradient">
+      <i data-lucide="binoculars" style="width:60px; height:60px;"></i>
+      <h3>Safari</h3>
+      <br>
+      <p>Indulge your scientific curiosity and collector's soul</p>
+      <br>
+      <p>Roam freely and capture what you see: animals, plants, curious objects or any kind of thing in your own photo safari — no fixed quests nor story.</p>
+    </div>
+  </section>
+  <section class="screenshots" style="position: relative; z-index: 3; width: 100%; margin-top: 120px;">
+    <h2>Screenshots</h2>
+    <span>
+      <img src="frontend/assets/web/quest_mode.gif" alt="Snapybara Demo GIF">
+      <img src="frontend/assets/web/story_mode.jpg" alt="Snapybara Screenshot">
+      <img src="frontend/assets/web/safari_mode.gif" alt="Snapybara Screenshot">
+    </span>  
+  </section>
+  <section class="download">
+    <h2>Download Snapybara Now</h2>
+    <a href="https://play.google.com/store/apps/details?id=com.snapybara">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+    </a>
+    <!-- <a href="https://apps.apple.com/app/snapybara/id000000000">
+      <img src="https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg" alt="Download on the App Store">
+    </a> -->
+  </section>
+  <footer>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="delete-account.html">Delete Account</a>
+    <p>&copy; 2025 Snapybara. All rights reserved.</p>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    // Parallax effect for logo: only scrolls up, no zoom
+    window.addEventListener('scroll', function() {
+      var scrolled = window.scrollY;
+      var parallax = document.getElementById('parallax-logo');
+      if (parallax) {
+        parallax.style.transform = 'translateX(-50%) translateY(' + (scrolled * 0.3) + 'px)';
+      }
+    });
+  </script>
+</body>
+</html>
