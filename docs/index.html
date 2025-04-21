@@ -25,7 +25,7 @@
     header { background: var(--primary); color: var(--light); text-align: center; padding: 4rem 1rem; }
     header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
     header p { font-size: 1.2rem; opacity: 0.9; }
-    .btn { display: inline-block; margin: 0.5rem 1rem; padding: 0.75rem 1.5rem; background: var(--light); color: var(--primary); border-radius: 2rem; text-decoration: none; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform .2s; }
+    .btn { display: inline-block;  background: var(--light); color: var(--primary); text-decoration: none; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform .2s; }
     .btn:hover { transform: translateY(-2px); }
     .features { 
       display: flex; 
@@ -75,7 +75,7 @@
     .feature h3 { margin-top: 1rem; font-weight: 500; }
     .screenshots { padding: 4rem 1rem; color: var(--primary); text-align: center;}
     .screenshots span {display: flex; flex-direction: row; justify-content: space-between; margin-top: 3rem;} 
-    .screenshots img {  max-width: 30%; height: auto; border-radius: 1rem; box-shadow: 0 8px 16px rgba(0,0,0,0.1);}
+    .screenshots img {  max-width: 30%; height: auto; border-radius: 0.5rem; box-shadow: 0 8px 16px rgba(0,0,0,0.1);}
     .download { padding: 4rem 1rem; text-align: center; background: var(--primary); }
     .download h2 { color: var(--light); font-size: 2rem; margin-bottom: 1rem; }
     .download a img { height: 60px; margin: 0 0.5rem; }
@@ -90,7 +90,7 @@
     .parallax-header {
       position: absolute;
       height: 1600px; /* Restore explicit height */
-      overflow: hidden;
+      overflow: visible;
       width: 100%;
       z-index: -10;
       display: flex;
@@ -116,14 +116,6 @@
       opacity: 1;
       display: block;
     }
-    .parallax-header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,0.25);
-      z-index: 2;
-      pointer-events: none;
-    }
     @media (max-width: 700px) {
       .parallax-header {
         height: 180px;
@@ -147,7 +139,7 @@
     <img src="assets/snapybaralogo1.png" alt="Snapybara Logo" id="parallax-logo">
   </div>
   <section class="features">
-    <div class="feature brown-gradient">
+    <div class="feature brown-gradient btn">
       <i data-lucide="scroll" style="width:60px; height:60px;"></i>
       <h3>Quests</h3>
       <br>
@@ -155,7 +147,7 @@
       <br>
       <p>Complete photo quests to earn experience points and compete on the global ranking.</p>
     </div>
-    <div class="feature red-gradient">
+    <div class="feature red-gradient btn">
       <i data-lucide="backpack" style="width:60px; height:60px;"></i>
       <h3>Story</h3>
       <br>
@@ -163,7 +155,7 @@
       <br>
       <p>Capture real-world items from your surroundings so they become part of your inventory and help you solve puzzles and progress the story.</p>
     </div>
-    <div class="feature green-gradient">
+    <div class="feature green-gradient btn">
       <i data-lucide="binoculars" style="width:60px; height:60px;"></i>
       <h3>Safari</h3>
       <br>
@@ -172,12 +164,12 @@
       <p>Roam freely and capture what you see: animals, plants, curious objects or any kind of thing in your own photo safari — no fixed quests nor story.</p>
     </div>
   </section>
-  <section class="screenshots" style="position: relative; z-index: 3; width: 100%; margin-top: 120px;">
+  <section class="screenshots" style="position: relative; z-index: 3; width: 100%;">
     <h2>Screenshots</h2>
     <span>
-      <img src="assets/quest_mode.gif" alt="Snapybara Demo GIF">
-      <img src="assets/story_mode.jpg" alt="Snapybara Screenshot">
-      <img src="assets/safari_mode.gif" alt="Snapybara Screenshot">
+      <img class="btn" src="assets/quest_mode.gif" alt="Snapybara Quest GIF">
+      <img class="btn" src="assets/story_mode.jpg" alt="Snapybara Story Screenshot">
+      <img class="btn" src="assets/safari_mode.gif" alt="Snapybara Safari GIF">
     </span>  
   </section>
   <section class="download">
@@ -200,12 +192,12 @@
   <script>
     lucide.createIcons();
 
-    // Parallax effect for logo: only scrolls up, no zoom
+    // Parallax effect for header
     window.addEventListener('scroll', function() {
       var scrolled = window.scrollY;
       var parallax = document.getElementById('parallax-logo');
       if (parallax) {
-        parallax.style.transform = 'translateX(-50%) translateY(' + (scrolled * 0.3) + 'px)';
+        parallax.style.transform = 'translateX(-50%) translateY(' + (scrolled * 0.85) + 'px)';
       }
     });
   </script>
